@@ -1,0 +1,64 @@
+           
+<div class="container ">
+    <div class="card" style="width: 18rem;" style="float: right;">
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card-body">
+            <button class="btn btn-info btn-lg" type="button">
+                <span class="glyphicon glyphicon-trash"></span> Trash
+            </button>
+        </div>
+        <div *ngFor="let item of datatrash">
+            <h5 class="card-title">{{item.notetitle}}</h5>
+            <!-- <h6 class="card-subtitle mb-2 text-muted">Discription</h6> -->
+            <!-- <p class="card-text">{{item.notetext}}</p>  -->
+        </div>
+    </div> <br><br><br>
+
+
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="input-group mb-3">
+                <input [(ngModel)]="notetitle" type="text" class="form-control" placeholder="Enter Title">
+                <input [(ngModel)]="notetext" type="text" class="form-control" placeholder="Enter note"><br>
+               
+            </div>
+            <button (click)="AddNoteText()" class="btn btn-primary" type="button">add note</button>
+            <div *ngIf="isLoggedIn;">
+                <button (click)="UpdateNotesList(a)  " class="btn btn-primary" type="button"
+                    style="align-items:center;">Save</button></div>
+        </div>
+
+    </div>
+   
+
+       
+    <div class="row">
+        <div class="col-md-3" *ngFor="let item of data">
+            <div class="card" style="width: 18rem;" style="padding:10; margin-bottom: 10px;">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.notetitle}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Discripstion</h6>
+                    <p class="card-text">{{item.notetext}}</p>
+                    <button (click)="EditNotesListt(item)" class="btn btn-primary" type="button"
+                        style=" float: left;">Edit</button>
+
+                    <button class="btn btn-primary" (click)="delDataAftteraddingTrash(item)"
+                        (click)="AddNoteToTrash(item)" type="button">delete</button>
+
+                    <!-- <div *ngIf="isLoggedIn;">
+                        <button (click)="UpdateNotesList(item)  " class="btn btn-secondary" type="button"
+                            style="align-items:center;">Save</button>
+
+                    </div> -->
+                </div>
+  </div>
+            </div>
+        </div>
+
+
+   
+
+
+
+
+</div>
